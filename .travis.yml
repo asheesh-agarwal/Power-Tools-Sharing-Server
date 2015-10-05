@@ -1,6 +1,13 @@
 language: java
-services: postgresql
-addons:
-  postgresql: "9.4"
-before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
+jdk:
+  - oraclejdk8 
+script: mvn install -DskipTests=true
+
+#services: postgresql
+#addons:
+#  postgresql: "9.4"
+#before_script:
+#  - psql -c 'create database travis_ci_test;' -U postgres
+
+#deploy: 
+#  skip_cleanup: true
