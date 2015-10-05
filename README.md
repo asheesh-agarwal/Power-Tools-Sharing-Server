@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/asheesh-agarwal/Power-Tools-Sharing-Server.svg?branch=master)](https://travis-ci.org/asheesh-agarwal/Power-Tools-Sharing-Server)
 # Power-Tools-Sharing-Server
 
 ### Background
