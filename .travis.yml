@@ -25,12 +25,12 @@ deploy:
     secret_access_key: 
       secure: xQUefxVOPbn00Im4AkFm4UvX8kCegmA4BPzY2pR8I67N3eJNDZXr2Mjf6Pkv/PO31Yl6wTcAPVl7UQkSDislgykl8ozbiUi80bGSMx/tjslrURJ2HG2mpcFJW/wSa9nnv5jmcgM0XHkCzRJsa70hIx609X7ducZze/1eLPl0qLtfulRz7SW+Ea/K49YDQsfvkesUXjrizIWCQWqVx4tyHXDuqsHi9U0ll5GgWvYExsaNQRjMK9fZ3uvsI9UA53QkvSU6V7J5y0h/XqsTYo6vh7ucOqAm6jCb5TXjaTG+gXVuJjhLSV0va0chptC+xazBxtxscIU4Ut017IQ4lj3otM6pJuMv9TSGRk5MOpBbfw6XOIiS4FgQQw/AlyO5xVg94bJx0WIZaFJ3N+TCJWfV8eJlK3U9dJaeNmq/YH3UgHaaeCJ6yaPHGNlw0ohiv4RTP57HgEYzpHzakzIdmwZaPbYWkiEcAgRwUFS+hiyhoSK8JtgpCXXxWgcMUaLWQODVe/YYkqavf/Vk+on32tEQ6In1Ypk/dAZrv6HWDWntfrOSyr7NhjT4X5jFtSPV6T5uuQn5tWu0isw7S6Ib/f4qsSVazOiYM06Jn6lsu9QFk9QYZIFJ8MRMD4YNI4PY7Y9/R6Xvl+rWZKik3a9HlVH8aibJqCkCZRpBRQJEnN+uJko=
     bucket: pts-server-code
-    key: PTS
+    key: pts.zip
     bundle_type: zip
     application: pts-server
     deployment_group: pts-server-fleet
 
-
+  
 #services: postgresql
 #addons:
 #  postgresql: "9.4"
