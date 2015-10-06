@@ -27,7 +27,7 @@ os: linux
 #   "files" section altogether. A blank or incomplete "files" section
 #   may cause associated deployments to fail.
 files:
-  - source: pts.zip
+  - source: power-tools-sharing-0.1.0.jar
     destination: /usr/share/tomcat8/webapps/pts/
     
 # For deployments to Amazon Linux, Ubuntu Server, or RHEL instances,
