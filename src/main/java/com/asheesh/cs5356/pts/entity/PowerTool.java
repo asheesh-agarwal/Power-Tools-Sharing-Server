@@ -15,6 +15,7 @@ public class PowerTool {
 	private String userid;
 	private String toolname;
 	private String toolimage;
+	private String toolimagename;
 	private String description;
 	private Date creationdate;
 	private Date updatedate;
@@ -23,43 +24,15 @@ public class PowerTool {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PowerTool(String toolName, String toolimage, String description, String userId) {
+	public PowerTool(String toolName, String toolImageName, String description, String userId) {
 		this.id = UUID.randomUUID().toString();
 
 		this.toolname = toolName;
-		this.toolimage = toolimage;
+		this.toolimagename = toolImageName;
 		this.description = description;
 		this.userid = userId;
 		
 		this.creationdate = Calendar.getInstance().getTime();
-	}
-
-	public String getToolName() {
-		return toolname;
-	}
-
-	public void setToolName(String toolName) {
-		this.toolname = toolName;
-	}
-
-	public String getToolImage() {
-		return toolimage;
-	}
-
-	public void setToolImage(String image) {
-		this.toolimage = image;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getId() {
-		return id;
 	}
 
 	public String getUserid() {
@@ -68,6 +41,38 @@ public class PowerTool {
 
 	public void setUserid(String userid) {
 		this.userid = userid;
+	}
+
+	public String getToolname() {
+		return toolname;
+	}
+
+	public void setToolname(String toolname) {
+		this.toolname = toolname;
+	}
+
+	public String getToolimage() {
+		return toolimage;
+	}
+
+	public void setToolimage(String toolimage) {
+		this.toolimage = toolimage;
+	}
+
+	public String getToolimagename() {
+		return toolimagename;
+	}
+
+	public void setToolimagename(String toolimagename) {
+		this.toolimagename = toolimagename;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public Date getCreationdate() {
@@ -85,4 +90,9 @@ public class PowerTool {
 	public void setUpdatedate(Date updatedate) {
 		this.updatedate = updatedate;
 	}
+
+	public String getId() {
+		return id;
+	}
+
 }

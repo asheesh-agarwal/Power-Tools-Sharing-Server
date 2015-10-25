@@ -96,8 +96,8 @@ public class PowerToolManagementTest extends TestCase {
 
 		addPowerToolRequest.setUserId(userId);
 		addPowerToolRequest.setName("Nail Gun");
+		addPowerToolRequest.setToolImageName("Nail_Gun.jpg");
 		addPowerToolRequest.setDescription("Gun used to pin different nails anywhere");
-		addPowerToolRequest.setImage(getImageString());
 
 		RestTemplate restTemplate = new RestTemplate();
 		AddPowerToolResponse addPowerToolResponse = restTemplate.postForObject(ADD_TOOL_USER_URI, addPowerToolRequest,
@@ -131,9 +131,9 @@ public class PowerToolManagementTest extends TestCase {
 		AddPowerToolRequest addPowerToolRequest = new AddPowerToolRequest();
 
 		addPowerToolRequest.setUserId(userId);
-		addPowerToolRequest.setName("Nail Gun");
+		addPowerToolRequest.setName("");
+		addPowerToolRequest.setToolImageName("Nail_Gun.jpg");
 		addPowerToolRequest.setDescription("Gun used to pin different nails anywhere");
-		addPowerToolRequest.setImage("");
 
 		RestTemplate restTemplate = new RestTemplate();
 		AddPowerToolResponse addPowerToolResponse = restTemplate.postForObject(ADD_TOOL_USER_URI, addPowerToolRequest,
@@ -142,7 +142,7 @@ public class PowerToolManagementTest extends TestCase {
 		toolId = addPowerToolResponse.getToolId();
 
 		assertEquals(Status.ERROR, addPowerToolResponse.getStatus());
-		assertEquals("Tool image is required in request", addPowerToolResponse.getErrorMessage());
+		assertEquals("Tool name is required in request", addPowerToolResponse.getErrorMessage());
 	}
 
 	public void testAddPowerToolForInvalidUserWithValidData() {
@@ -151,8 +151,8 @@ public class PowerToolManagementTest extends TestCase {
 
 		addPowerToolRequest.setUserId("");
 		addPowerToolRequest.setName("Nail Gun");
+		addPowerToolRequest.setToolImageName("Nail_Gun.jpg");
 		addPowerToolRequest.setDescription("Gun used to pin different nails anywhere");
-		addPowerToolRequest.setImage(getImageString());
 
 		RestTemplate restTemplate = new RestTemplate();
 		AddPowerToolResponse addPowerToolResponse = restTemplate.postForObject(ADD_TOOL_USER_URI, addPowerToolRequest,

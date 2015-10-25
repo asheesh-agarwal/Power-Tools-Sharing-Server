@@ -4,7 +4,7 @@ public class AddPowerToolRequest {
 
 	private String userId;
 	private String name;
-	private String image;
+	private String toolImageName;
 	private String description;
 	
 	public String getUserId() {
@@ -19,17 +19,17 @@ public class AddPowerToolRequest {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
+
 	public String getDescription() {
 		return description;
 	}
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
+	public String getToolImageName() {
+		return toolImageName;
+	}
+	public void setToolImageName(String toolImageName) {
+		this.toolImageName = toolImageName;
+	}
 }

@@ -12,14 +12,14 @@ public class User {
 
 	@Id
 	private String id;
-	private String userId;
-	private String firstName;
-	private String lastName;
-	private String emailId;
+	private String userid;
+	private String firstname;
+	private String lastname;
+	private String emailid;
 	private byte[] password;
 	private String status;
-	private Date creationDate;
-	private Date updateDate;
+	private Date creationdate;
+	private Date updatedate;
 	
 	protected User(){
 		
@@ -27,47 +27,47 @@ public class User {
 	
 	public User(String firstName, String lastName, String emailId, byte[] password) {
 		this.id = UUID.randomUUID().toString();
-		this.userId = UUID.randomUUID().toString();
+		this.userid = UUID.randomUUID().toString();
 		
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.emailId = emailId;
+		this.firstname = firstName;
+		this.lastname = lastName;
+		this.emailid = emailId;
 		this.password = password;
 		
 		this.status = "ACTIVE";
-		this.creationDate = Calendar.getInstance().getTime();
+		this.creationdate = Calendar.getInstance().getTime();
 	}
 
 	public String getId() {
 		return id;
 	}
-	
-	public String getUserId() {
-		return userId;
+
+	public String getUserid() {
+		return userid;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
-	public String getEmailId() {
-		return emailId;
+	public String getEmailid() {
+		return emailid;
 	}
 
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+	public void setEmailid(String emailid) {
+		this.emailid = emailid;
 	}
 
 	public byte[] getPassword() {
@@ -86,20 +86,19 @@ public class User {
 		this.status = status;
 	}
 
-	public Date getCreationDate() {
-		return creationDate;
+	public Date getCreationdate() {
+		return creationdate;
 	}
 
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
+	public void setCreationdate(Date creationdate) {
+		this.creationdate = creationdate;
 	}
 
-	public Date getUpdateDate() {
-		return updateDate;
+	public Date getUpdatedate() {
+		return updatedate;
 	}
 
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
+	public void setUpdatedate(Date updatedate) {
+		this.updatedate = updatedate;
 	}
-	
 }

@@ -34,10 +34,6 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
-        <dependency>
-        	<groupId>org.springframework.boot</groupId>
-        	<artifactId>spring-boot-starter-jta-atomikos</artifactId>
-        </dependency>
     </dependencies>
 
     <properties>

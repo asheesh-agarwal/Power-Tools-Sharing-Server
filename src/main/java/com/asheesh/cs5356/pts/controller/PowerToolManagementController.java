@@ -39,17 +39,20 @@ public class PowerToolManagementController {
 		if (StringUtils.isEmpty(addPowerToolRequest.getName()))
 			return (AddPowerToolResponse) addPowerToolResponse.createErrorResponse("Tool name is required in request");
 
-		if (StringUtils.isEmpty(addPowerToolRequest.getImage()))
-			return (AddPowerToolResponse) addPowerToolResponse.createErrorResponse("Tool image is required in request");
+		if (StringUtils.isEmpty(addPowerToolRequest.getToolImageName())) {
+			return (AddPowerToolResponse) addPowerToolResponse
+					.createErrorResponse("Tool image name is required in request");
+		}
 
-		User user = userRepository.findByUserId(addPowerToolRequest.getUserId());
+		User user = userRepository.findByUserid(addPowerToolRequest.getUserId());
 
 		if (user == null)
 			return (AddPowerToolResponse) addPowerToolResponse
 					.createErrorResponse("User not found, try with valid credentials");
 
-		PowerTool powerTool = powerToolRepository.save(new PowerTool(addPowerToolRequest.getName(),
-				addPowerToolRequest.getImage(), addPowerToolRequest.getDescription(), addPowerToolRequest.getUserId()));
+		PowerTool powerTool = powerToolRepository
+				.save(new PowerTool(addPowerToolRequest.getName(), addPowerToolRequest.getToolImageName(),
+						addPowerToolRequest.getDescription(), addPowerToolRequest.getUserId()));
 
 		addPowerToolResponse.setToolId(powerTool.getId());
 
@@ -81,7 +84,7 @@ public class PowerToolManagementController {
 	public @ResponseBody GetPowerToolsResponse getMyPowerTools(@RequestBody GetPowerToolsRequest getPowerToolsRequest) {
 		GetPowerToolsResponse getPowerToolsResponse = new GetPowerToolsResponse();
 
-		User user = userRepository.findByUserId(getPowerToolsRequest.getUserId());
+		User user = userRepository.findByUserid(getPowerToolsRequest.getUserId());
 
 		if (user == null)
 			return (GetPowerToolsResponse) getPowerToolsResponse

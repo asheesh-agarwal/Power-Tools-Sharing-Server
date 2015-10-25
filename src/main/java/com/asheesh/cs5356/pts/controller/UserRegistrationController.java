@@ -46,7 +46,7 @@ public class UserRegistrationController {
 			return (UserRegistrationResponse) registrationResponse
 					.createErrorResponse("Both password and confirm password should have same value");
 
-		User user = userRepository.findByEmailId(request.getEmailId());
+		User user = userRepository.findByEmailid(request.getEmailId());
 
 		if (user != null) {
 			return (UserRegistrationResponse) registrationResponse
@@ -56,14 +56,14 @@ public class UserRegistrationController {
 		user = userRepository.save(new User(request.getFirstName(), request.getLastName(), request.getEmailId(),
 				request.getPassword().getBytes()));
 
-		registrationResponse.setUserId(user.getUserId());
+		registrationResponse.setUserId(user.getUserid());
 		registrationResponse.setStatus(Status.SUCCESS);
 
 		return registrationResponse;
 	}
 
 	public void deleteUserByEmail(String emailId) throws UserNotFoundException {
-		User user = userRepository.findByEmailId(emailId);
+		User user = userRepository.findByEmailid(emailId);
 
 		if (user == null)
 			throw new UserNotFoundException();
@@ -76,7 +76,7 @@ public class UserRegistrationController {
 
 		UserTerminationResponse terminationResponse = new UserTerminationResponse();
 
-		User user = userRepository.findByEmailId(terminationRequest.getEmailId());
+		User user = userRepository.findByEmailid(terminationRequest.getEmailId());
 
 		if (user == null)
 			return (UserTerminationResponse) terminationResponse

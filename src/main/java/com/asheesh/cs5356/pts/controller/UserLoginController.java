@@ -22,7 +22,7 @@ public class UserLoginController {
 
 		UserLoginResponse loginResponse = new UserLoginResponse();
 
-		User user = userRepository.findByEmailId(request.getEmailId());
+		User user = userRepository.findByEmailid(request.getEmailId());
 
 		if (user == null)
 			return (UserLoginResponse) loginResponse.createErrorResponse("User not found, try with valid credentials");
@@ -32,7 +32,7 @@ public class UserLoginController {
 					.createErrorResponse("User authentication failed, try with valid credentials");
 		}
 
-		loginResponse.setUserId(user.getUserId());
+		loginResponse.setUserId(user.getUserid());
 
 		return loginResponse;
 	}

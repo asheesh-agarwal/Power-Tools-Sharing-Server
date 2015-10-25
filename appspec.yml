@@ -30,26 +30,10 @@ files:
   - source: power-tools-sharing-0.1.0.jar
     destination: /usr/share/tomcat8/webapps/pts/
     
-# For deployments to Amazon Linux, Ubuntu Server, or RHEL instances,
-#   you can specify a "permissions" 
-#   section here that describes special permissions to apply to the files 
-#   in the "files" section as they are being copied over to 
-#   the instance.
-#   For more information, see the documentation.
-# If you are deploying to Windows Server instances,
-#   then remove the 
-#   "permissions" section altogether. A blank or incomplete "permissions"
-#   section may cause associated deployments to fail.
-#permissions:
-#  - object:
-#    owner: root
-#    group: root
-#    mode: 755
-    
 # If you are not running any commands on the instance, then remove 
 #   the "hooks" section altogether. A blank or incomplete "hooks" section
 #   may cause associated deployments to fail.
-#hooks:
+hooks:
 # For each deployment lifecycle event, specify multiple "location" entries 
 #   if you want to run multiple scripts during that event.
 # You can specify "timeout" as the number of seconds to wait until failing the deployment 
@@ -70,6 +54,16 @@ files:
 # If you do not want to run any commands during a particular deployment
 #   lifecycle event, remove that event declaration altogether. Blank or 
 #   incomplete event declarations may cause associated deployments to fail.
+
+  BeforeInstall: 
+    - location: 
+      timeout: 120
+      runas: root
+    
+  ApplicationStart: 
+    - location: 
+      timeout: 120
+      runas: root
 
 
 # During the ApplicationInstall deployment lifecycle event, run the commands 
