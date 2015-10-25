@@ -55,15 +55,15 @@ hooks:
 #   lifecycle event, remove that event declaration altogether. Blank or 
 #   incomplete event declarations may cause associated deployments to fail.
 
-  BeforeInstall: 
-    - location: 
-      timeout: 120
-      runas: root
+#  BeforeInstall: 
+#    - location: 
+#      timeout: 120
+#      runas: root
     
-  ApplicationStart: 
-    - location: 
-      timeout: 120
-      runas: root
+#  ApplicationStart: 
+#    - location: 
+#      timeout: 120
+#      runas: root
 
 
 # During the ApplicationInstall deployment lifecycle event, run the commands 
