@@ -14,17 +14,19 @@ individuals are just sharing without asking anything in return, around power too
 
 ### Current Status
 
-Currently server exposes RESTful APIs for any user to register their account and do login for uploading their
-power tools.
+Currently server exposes RESTful APIs for following use-cases:
+* User Registration
+* User Login
+* View Public Tools
+* View My Tools
+* Upload a new Tool
+* Mark Tool as Available/Unavailable
 
 ### Whats Next
 
 Next development interation will include below items:
-* REST API for users for uploading their power tools.
-* REST API for users for marking their power tools as loaned.
-* More functional test-cases and coverage.
-* CI and CD.
-* Remote web deployment.
+* More functional test-cases and coverage
+* Remote web deployment
 
 ### Technologies Used
 
