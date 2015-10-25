@@ -7,7 +7,7 @@ import java.util.UUID;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity(name="pts_powertool")
+@Entity(name = "pts_powertool")
 public class PowerTool {
 
 	@Id
@@ -17,11 +17,26 @@ public class PowerTool {
 	private String toolimage;
 	private String toolimagename;
 	private String description;
+	private String status;
 	private Date creationdate;
 	private Date updatedate;
 
 	protected PowerTool() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public enum ToolStatus {
+		AVAILABLE("AVAILABLE"), UNAVAILABLE("UNAVAILABLE");
+
+		private String status;
+
+		public String getStatus() {
+			return status;
+		}
+
+		private ToolStatus (String toolStatus) {
+			this.status = toolStatus;
+		}
 	}
 
 	public PowerTool(String toolName, String toolImageName, String description, String userId) {
@@ -31,8 +46,18 @@ public class PowerTool {
 		this.toolimagename = toolImageName;
 		this.description = description;
 		this.userid = userId;
-		
+
+		this.status = ToolStatus.AVAILABLE.getStatus();
+
 		this.creationdate = Calendar.getInstance().getTime();
+	}
+
+	public void markAvailable() {
+		this.status = ToolStatus.AVAILABLE.getStatus();
+	}
+
+	public void markUnAvailable() {
+		this.status = ToolStatus.UNAVAILABLE.getStatus();
 	}
 
 	public String getUserid() {
@@ -95,4 +120,11 @@ public class PowerTool {
 		return id;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 }

@@ -10,15 +10,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.asheesh.cs5356.pts.entity.PowerTool;
+import com.asheesh.cs5356.pts.entity.PowerTool.ToolStatus;
 import com.asheesh.cs5356.pts.entity.User;
 import com.asheesh.cs5356.pts.repository.PowerToolRepository;
 import com.asheesh.cs5356.pts.repository.UserRepository;
 import com.asheesh.cs5356.pts.request.AddPowerToolRequest;
 import com.asheesh.cs5356.pts.request.GetPowerToolsRequest;
 import com.asheesh.cs5356.pts.request.RemovePowerToolRequest;
+import com.asheesh.cs5356.pts.request.UpdateToolStatusRequest;
 import com.asheesh.cs5356.pts.response.AddPowerToolResponse;
 import com.asheesh.cs5356.pts.response.GetPowerToolsResponse;
 import com.asheesh.cs5356.pts.response.RemovePowerToolResponse;
+import com.asheesh.cs5356.pts.response.UpdateToolStatusResponse;
 
 @RestController
 public class PowerToolManagementController {
@@ -75,9 +78,33 @@ public class PowerToolManagementController {
 		return removePowerToolResponse;
 	}
 
-	@RequestMapping(value = "/updateTool")
-	public void updateMyPowerTool() {
+	@RequestMapping(value = "/updateToolStatus")
+	public @ResponseBody UpdateToolStatusResponse updateMyPowerTool(
+			@RequestBody UpdateToolStatusRequest updateToolStatusRequest) {
+		UpdateToolStatusResponse updateToolStatusResponse = new UpdateToolStatusResponse();
 
+		PowerTool powerTool = powerToolRepository.findByIdAndUserid(updateToolStatusRequest.getToolId(),
+				updateToolStatusRequest.getUserId());
+
+		if (powerTool == null)
+			return (UpdateToolStatusResponse) updateToolStatusResponse.createErrorResponse("Power tool not found");
+
+		if (updateToolStatusRequest.getStatus().equalsIgnoreCase(ToolStatus.AVAILABLE.getStatus())) {
+			powerTool.markAvailable();
+
+		} else if (updateToolStatusRequest.getStatus().equalsIgnoreCase(ToolStatus.UNAVAILABLE.getStatus())) {
+			powerTool.markUnAvailable();
+
+		} else {
+			return (UpdateToolStatusResponse) updateToolStatusResponse
+					.createErrorResponse("Invalid status update requested");
+		}
+
+		powerTool = powerToolRepository.save(powerTool);
+
+		updateToolStatusResponse.powerTool = powerTool;
+
+		return updateToolStatusResponse;
 	}
 
 	@RequestMapping(value = "/getTools")
