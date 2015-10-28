@@ -27,18 +27,22 @@ Currently server exposes RESTful APIs for following use-cases:
 Next development interation will include below items:
 * More functional test-cases and coverage
 
+### Hosting
+This server is hosted on AWS EC2 instance and is available at [URL](http://ec2-54-173-239-217.compute-1.amazonaws.com:8080/). Server might not be running at all times.
+
+### Continuous Integration & Deployment
+* [Travis CI](https://travis-ci.org/asheesh-agarwal/Power-Tools-Sharing-Server) - This link takes you to the continous integration page of the power tool sharing server. 
+As soon as some code is committed and pushed to this repository, Travis-CI service is invoked and a new build is created. The new build is then pushed to AWS EC2 instance via CodeDeploy service.
+
 ### Technologies Used
 
 * Java 8 - Language used for developing server application
 * [Spring Framework](http://projects.spring.io/spring-framework/) 4.1.7 - Development framework for building web based application
 * [Spring Data JPA](http://spring.io/guides/gs/accessing-data-jpa/) - Development framework for managing data in datbase through web application
-* PostgreSQL - Database provider for storing data
 * [Spring Tool Suite](https://spring.io/tools) - IDE for project development
+* Tomcat - Tomcat 8.0.23 is used as web server to deploy this application
+* PostgreSQL - Database provider for storing data
 * [Travis-CI](https://travis-ci.org) - Tool used for continous integration and deployment of server code on Amazon EC2 server
-
-### Continuous Integration & Deployment
-* [Travis CI](https://travis-ci.org/asheesh-agarwal/Power-Tools-Sharing-Server) - This link takes you to the continous integration page of the power tool sharing server. 
-As soon as some code is committed and pushed to this repository, Travis-CI service is invoked and a new build is created. The new build is then pushed to AWS EC2 instance via CodeDeploy service.
 
 ### Project Management
 * [Project Dashboard](https://waffle.io/asheesh-agarwal/Power-Tools-Sharing) - This dashboard is current out-of-sync with the current state of this repository due to some technical issues in Waffle. I will look into this and will update this section later.
