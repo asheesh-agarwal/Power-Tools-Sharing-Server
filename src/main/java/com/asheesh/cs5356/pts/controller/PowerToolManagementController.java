@@ -107,7 +107,7 @@ public class PowerToolManagementController {
 		return updateToolStatusResponse;
 	}
 
-	@RequestMapping(value = "/getTools")
+	@RequestMapping(value = "/getMyTools")
 	public @ResponseBody GetPowerToolsResponse getMyPowerTools(@RequestBody GetPowerToolsRequest getPowerToolsRequest) {
 		GetPowerToolsResponse getPowerToolsResponse = new GetPowerToolsResponse();
 
@@ -118,6 +118,25 @@ public class PowerToolManagementController {
 					.createErrorResponse("User not found, try with valid credentials");
 
 		List<PowerTool> powerTools = powerToolRepository.findByUserid(getPowerToolsRequest.getUserId());
+
+		getPowerToolsResponse.setPowerTools(powerTools);
+
+		return getPowerToolsResponse;
+
+	}
+
+	@RequestMapping(value = "/getPublicTools")
+	public @ResponseBody GetPowerToolsResponse getPublicPowerTools(
+			@RequestBody GetPowerToolsRequest getPowerToolsRequest) {
+		GetPowerToolsResponse getPowerToolsResponse = new GetPowerToolsResponse();
+
+		User user = userRepository.findByUserid(getPowerToolsRequest.getUserId());
+
+		if (user == null)
+			return (GetPowerToolsResponse) getPowerToolsResponse
+					.createErrorResponse("User not found, try with valid credentials");
+
+		List<PowerTool> powerTools = powerToolRepository.findByUseridNot(getPowerToolsRequest.getUserId());
 
 		getPowerToolsResponse.setPowerTools(powerTools);
 

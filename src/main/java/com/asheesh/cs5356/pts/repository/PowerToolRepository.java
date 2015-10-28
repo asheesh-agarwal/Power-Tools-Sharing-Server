@@ -13,4 +13,6 @@ public interface PowerToolRepository extends CrudRepository<PowerTool, String> {
 	public List<PowerTool> findByUserid(String userId);
 	
 	public PowerTool findByIdAndUserid(String id, String userId);
+	
+	public List<PowerTool> findByUseridNot(String userId);
 }
