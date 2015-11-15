@@ -1,5 +1,6 @@
 package com.asheesh.cs5356.pts.controller;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -119,7 +120,11 @@ public class PowerToolManagementController {
 
 		List<PowerTool> powerTools = powerToolRepository.findByUserid(getPowerToolsRequest.getUserId());
 
-		getPowerToolsResponse.setPowerTools(powerTools);
+		for (Iterator<PowerTool> iterator = powerTools.iterator(); iterator.hasNext();) {
+			PowerTool powerTool = iterator.next();
+
+			getPowerToolsResponse.setPowerTool(powerTool, user.getMobilenumber());
+		}
 
 		return getPowerToolsResponse;
 
@@ -138,7 +143,12 @@ public class PowerToolManagementController {
 
 		List<PowerTool> powerTools = powerToolRepository.findByUseridNot(getPowerToolsRequest.getUserId());
 
-		getPowerToolsResponse.setPowerTools(powerTools);
+		for (Iterator<PowerTool> iterator = powerTools.iterator(); iterator.hasNext();) {
+			PowerTool powerTool = iterator.next();
+
+			User tempUser = userRepository.findByUserid(powerTool.getUserid());
+			getPowerToolsResponse.setPowerTool(powerTool, tempUser.getMobilenumber());
+		}
 
 		return getPowerToolsResponse;
 

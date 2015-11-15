@@ -32,6 +32,9 @@ public class UserRegistrationController {
 		if (StringUtils.isEmpty(request.getLastName()))
 			return (UserRegistrationResponse) registrationResponse.createErrorResponse("Last Name cannot be empty");
 
+		if (StringUtils.isEmpty(request.getMobileNumber()))
+			return (UserRegistrationResponse) registrationResponse.createErrorResponse("Mobile Number cannot be empty");
+
 		if (StringUtils.isEmpty(request.getEmailId()))
 			return (UserRegistrationResponse) registrationResponse.createErrorResponse("Email Id cannot be empty");
 
@@ -53,8 +56,8 @@ public class UserRegistrationController {
 					.createErrorResponse("User already exists with Email Id: " + request.getEmailId());
 		}
 
-		user = userRepository.save(new User(request.getFirstName(), request.getLastName(), request.getEmailId(),
-				request.getPassword().getBytes()));
+		user = userRepository.save(new User(request.getFirstName(), request.getLastName(), request.getMobileNumber(),
+				request.getEmailId(), request.getPassword().getBytes()));
 
 		registrationResponse.setUserId(user.getUserid());
 		registrationResponse.setStatus(Status.SUCCESS);

@@ -11,6 +11,9 @@ public class UserRegistrationRequest {
 	private String lastName;
 	
 	@NotNull
+	private String mobileNumber;
+	
+	@NotNull
 	private String emailId;
 
 	@NotNull
@@ -38,6 +41,14 @@ public class UserRegistrationRequest {
 		this.lastName = lastName;
 	}
 	
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+
 	public String getEmailId() {
 		return emailId;
 	}

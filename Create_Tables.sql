@@ -10,6 +10,7 @@ CREATE TABLE pts_user
   password bytea NOT NULL,
   firstname character varying(50) NOT NULL,
   lastname character varying(50) NOT NULL,
+  mobilenumber character varying(12) NOT NULL,
   status character varying(20) NOT NULL,
   creationdate timestamp without time zone NOT NULL,
   updatedate timestamp without time zone,
