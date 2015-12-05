@@ -36,6 +36,8 @@ CREATE TABLE pts_powertool
   toolimagename character varying(100) NOT NULL,
   status character varying(50) NOT NULL,
   description character varying(500),
+  latitude character varying(50) NOT NULL,
+  longitude character varying(50) NOT NULL,
   creationdate timestamp without time zone NOT NULL,
   updatedate timestamp without time zone,
   CONSTRAINT primary_key_powertool PRIMARY KEY (id),

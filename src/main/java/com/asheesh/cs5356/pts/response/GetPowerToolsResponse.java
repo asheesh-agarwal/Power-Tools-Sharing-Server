@@ -35,6 +35,8 @@ public class GetPowerToolsResponse extends Response {
 		public String toolimagename;
 		public String description;
 		public String status;
+		public String latitude;
+		public String longitude;
 		public Date creationdate;
 
 		public PowerToolInfoForClient getPowerToolInfoForClient(PowerTool powerTool) {
@@ -45,6 +47,8 @@ public class GetPowerToolsResponse extends Response {
 			this.toolimagename = powerTool.getToolimagename();
 			this.description = powerTool.getDescription();
 			this.status = powerTool.getStatus();
+			this.latitude = powerTool.getLatitude();
+			this.longitude = powerTool.getLongitude();
 			this.creationdate = powerTool.getCreationdate();
 
 			return this;

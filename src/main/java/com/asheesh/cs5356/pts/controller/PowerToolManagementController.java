@@ -48,6 +48,12 @@ public class PowerToolManagementController {
 					.createErrorResponse("Tool image name is required in request");
 		}
 
+		if (StringUtils.isEmpty(addPowerToolRequest.getLatitude())
+				|| StringUtils.isEmpty(addPowerToolRequest.getLongitude())) {
+			return (AddPowerToolResponse) addPowerToolResponse.createErrorResponse(
+					"Tool location is required, kindly allow application to use location services and try again");
+		}
+
 		User user = userRepository.findByUserid(addPowerToolRequest.getUserId());
 
 		if (user == null)
@@ -56,7 +62,8 @@ public class PowerToolManagementController {
 
 		PowerTool powerTool = powerToolRepository
 				.save(new PowerTool(addPowerToolRequest.getName(), addPowerToolRequest.getToolImageName(),
-						addPowerToolRequest.getDescription(), addPowerToolRequest.getUserId()));
+						addPowerToolRequest.getDescription(), addPowerToolRequest.getUserId(),
+						addPowerToolRequest.getLatitude(), addPowerToolRequest.getLongitude()));
 
 		addPowerToolResponse.setToolId(powerTool.getId());
 

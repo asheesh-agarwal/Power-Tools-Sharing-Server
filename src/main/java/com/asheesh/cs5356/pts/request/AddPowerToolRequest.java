@@ -6,6 +6,8 @@ public class AddPowerToolRequest {
 	private String name;
 	private String toolImageName;
 	private String description;
+	private String latitude;
+	private String longitude;
 	
 	public String getUserId() {
 		return userId;
@@ -31,5 +33,17 @@ public class AddPowerToolRequest {
 	}
 	public void setToolImageName(String toolImageName) {
 		this.toolImageName = toolImageName;
+	}
+	public String getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+	public String getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
 	}
 }

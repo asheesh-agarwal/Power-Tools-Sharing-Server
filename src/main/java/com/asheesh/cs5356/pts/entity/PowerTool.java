@@ -18,6 +18,8 @@ public class PowerTool {
 	private String toolimagename;
 	private String description;
 	private String status;
+	private String latitude;
+	private String longitude;
 	private Date creationdate;
 	private Date updatedate;
 
@@ -34,18 +36,21 @@ public class PowerTool {
 			return status;
 		}
 
-		private ToolStatus (String toolStatus) {
+		private ToolStatus(String toolStatus) {
 			this.status = toolStatus;
 		}
 	}
 
-	public PowerTool(String toolName, String toolImageName, String description, String userId) {
+	public PowerTool(String toolName, String toolImageName, String description, String userId, String latitude,
+			String longitude) {
 		this.id = UUID.randomUUID().toString();
 
 		this.toolname = toolName;
 		this.toolimagename = toolImageName;
 		this.description = description;
 		this.userid = userId;
+		this.latitude = latitude;
+		this.longitude = longitude;
 
 		this.status = ToolStatus.AVAILABLE.getStatus();
 
@@ -126,5 +131,21 @@ public class PowerTool {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public String getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+
+	public String getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
 	}
 }
